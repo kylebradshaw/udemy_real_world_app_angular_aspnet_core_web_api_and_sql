@@ -294,3 +294,4 @@
 /Users/kb/Development/_LEARNING/udemy_real_world_app_angular_aspnet_core_web_api_and_sql/CodePulse.API/obj/Debug/net10.0/CodePulse.API.pdb
 /Users/kb/Development/_LEARNING/udemy_real_world_app_angular_aspnet_core_web_api_and_sql/CodePulse.API/obj/Debug/net10.0/CodePulse.API.genruntimeconfig.cache
 /Users/kb/Development/_LEARNING/udemy_real_world_app_angular_aspnet_core_web_api_and_sql/CodePulse.API/obj/Debug/net10.0/ref/CodePulse.API.dll
+/Users/kb/Development/_LEARNING/udemy_real_world_app_angular_aspnet_core_web_api_and_sql/CodePulse.API/bin/Debug/net10.0/Scalar.AspNetCore.dll

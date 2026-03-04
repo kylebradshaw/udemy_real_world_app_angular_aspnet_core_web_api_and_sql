@@ -20,16 +20,18 @@ public class CategoriesController : ControllerBase
     [HttpPost]
     public IActionResult CreateCategory([FromBody] CreateCategoryRequestDto request)
     {
+        // Map DTO to Domain Model
         var category = new Category
         {
             Id = Guid.NewGuid(),
             Name = request.Name,
             UrlHandle = request.UrlHandle
         };
-
+        // async is implied
         _dbContext.Categories.Add(category);
         _dbContext.SaveChanges();
 
+        // Map Domain Model to DTO
         var response = new CategoryDto
         {
             Id = category.Id,
@@ -37,6 +39,7 @@ public class CategoriesController : ControllerBase
             UrlHandle = category.UrlHandle
         };
 
+        // return Ok(response);
         return CreatedAtAction(nameof(GetCategoryById), new { id = category.Id }, response);
     }
 

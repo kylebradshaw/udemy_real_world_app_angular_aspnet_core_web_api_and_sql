@@ -2,6 +2,20 @@
 
 https://www.udemy.com/course/real-world-app-angular-aspnet-core-web-api-and-sql
 
+## 27. Repository Pattern (START HERE)
+
+- Design pattern to separate the data access logic from the app
+- provides interface w/o exposing implementation
+- helps create abstraction
+
+## 26. Test API
+
+need interface for api like swagger
+
+`dotnet add package Scalar.AspNetCore`
+
+http://localhost:5000/scalar/v1
+
 ## 25. DTOs and Domain Models
 
 Domain models represent the database structure, but when it comes to an API response we don't want to surface that structure directly. DTOs are used to shape the data that we want to send back to the client. They can also be used to validate incoming data from the client.
