@@ -2,6 +2,14 @@
 
 https://www.udemy.com/course/real-world-app-angular-aspnet-core-web-api-and-sql
 
+## 25. DTOs and Domain Models
+
+Domain models represent the database structure, but when it comes to an API response we don't want to surface that structure directly. DTOs are used to shape the data that we want to send back to the client. They can also be used to validate incoming data from the client.
+
+## 24. Adding a Controller and implementing CRUD operations
+
+Claude went for it, removed minimal api and added `CategoriesController`
+
 ## 23. Running EF Core Migrations
 
 `Tools > NuGet Package Manager > Package Manager Console`
