@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodePulse.API", "CodePulse.API\CodePulse.API.csproj", "{C43BA251-B198-4B69-9AB1-4CC1ED45A195}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C43BA251-B198-4B69-9AB1-4CC1ED45A195}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C43BA251-B198-4B69-9AB1-4CC1ED45A195}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C43BA251-B198-4B69-9AB1-4CC1ED45A195}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C43BA251-B198-4B69-9AB1-4CC1ED45A195}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
