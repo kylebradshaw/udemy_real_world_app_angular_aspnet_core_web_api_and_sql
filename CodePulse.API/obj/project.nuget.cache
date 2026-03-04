@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Fl8uMSfnVuI=",
+  "dgSpecHash": "1guOuPszV84=",
   "success": true,
-  "projectFilePath": "/Users/kb/Development/_LEARNING/udemy_real_world_app_angular_aspnet_core_web_api_and_sql/API/CodePulse.API/CodePulse.API/CodePulse.API.csproj",
+  "projectFilePath": "/Users/kb/Development/_LEARNING/udemy_real_world_app_angular_aspnet_core_web_api_and_sql/CodePulse.API/CodePulse.API.csproj",
   "expectedPackageFiles": [
     "/Users/kb/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/Users/kb/.nuget/packages/microsoft.aspnetcore.openapi/10.0.3/microsoft.aspnetcore.openapi.10.0.3.nupkg.sha512",

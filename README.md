@@ -18,6 +18,13 @@ this doesn't exist in Rider, so we have to use the CLI instead. `dotnet ef migra
 
 https://blog.jetbrains.com/dotnet/2017/11/14/working-rider-built-terminal/
 
+```
+kb@macFi ~/Development/_LEARNING/udemy_real_world_app_angular_aspnet_core_web_api_and_sql/CodePulse.API                                                                                                                                                     > $ dotnet ef migrations add "Initial Migration"
+> $ dotnet ef database update
+```
+
+_CodePulse.db_ should now be created in the root of the project.
+
 ## 22. understanding Dependency Injection and injecting DbContext into the application (Program.cs)
 
 DI - pattern to increase maintainability and testability of the code. allows us to inject dependencies into a class rather than hardcoding them. In Program.cs, we can add services to the DI container and then inject them into our controllers or other classes as needed.
