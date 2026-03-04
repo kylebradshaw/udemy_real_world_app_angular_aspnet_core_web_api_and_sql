@@ -43,14 +43,38 @@ dotnet restore
 
 - **Runtime**: .NET 10
 - **Framework**: ASP.NET Core (minimal API style in `Program.cs`)
-- **OpenAPI**: `Microsoft.AspNetCore.OpenApi` — OpenAPI endpoint available at `/openapi/v1.json` in development
+- **ORM**: Entity Framework Core 10 with SQLite (`Microsoft.EntityFrameworkCore.Sqlite`)
+- **OpenAPI**: `Microsoft.AspNetCore.OpenApi` — endpoint at `/openapi/v1.json` in development
 - **Nullable reference types**: enabled
 - **Implicit usings**: enabled
 
-## Architecture Notes
+## Architecture
 
-The API is in its initial scaffolded state. As the course progresses, expect to add:
-- Entity Framework Core with SQL Server
-- Controllers or additional minimal API endpoints
-- Authentication/authorization
-- Domain models, repositories, and services
+```
+CodePulse.API/
+├── Data/
+│   └── ApplicationDbContext.cs   ← EF Core DbContext (BlogPosts, Categories)
+├── Models/
+│   └── Domain/
+│       ├── BlogPost.cs           ← Id, Title, ShortDescription, Content, FeaturedImageUrl,
+│       │                            UrlHandle, PublishedData, Author, IsVisible
+│       └── Category.cs           ← Id, Name, UrlHandle
+└── Program.cs                    ← Minimal API entry point (still has scaffold WeatherForecast)
+```
+
+The course follows a layered pattern. Expect to add: controllers, repositories, services, DTOs, and authentication as lessons progress.
+
+## EF Core Migrations
+
+Run from `API/CodePulse.API/` (solution root):
+
+```bash
+# Add a migration
+dotnet ef migrations add <MigrationName> --project CodePulse.API/
+
+# Apply migrations / create DB
+dotnet ef database update --project CodePulse.API/
+
+# List migrations
+dotnet ef migrations list --project CodePulse.API/
+```

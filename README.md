@@ -2,6 +2,15 @@
 
 https://www.udemy.com/course/real-world-app-angular-aspnet-core-web-api-and-sql
 
+## 20. DbContext Class
+
+represents a session with the database and can be used to query and save instances of your entities. DbContext is a combination of the Unit Of Work and Repository patterns. perform crud operations and is bridge between Controller and Database
+
+## 19. nuget packages for Entity Framework Core
+
+**DEVIATION** instead of sql server,
+Microsoft.EntityFrameworkCore.Sqlite instead of sqlserver
+Microsoft.EntityFrameworkCore.Tools
 
 ## 18, 17. Project & Domain Models
 
