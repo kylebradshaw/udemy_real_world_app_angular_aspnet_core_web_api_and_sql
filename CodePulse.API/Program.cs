@@ -1,4 +1,6 @@
 using CodePulse.API.Data;
+using CodePulse.API.Repositories.Implementation;
+using CodePulse.API.Repositories.Interface;
 using Microsoft.EntityFrameworkCore;
 using Scalar.AspNetCore;
 
@@ -10,6 +12,9 @@ builder.Services.AddOpenApi();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("CodePulseConnectionString")));
+
+// DI for using repository  
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 
 var app = builder.Build();
 
