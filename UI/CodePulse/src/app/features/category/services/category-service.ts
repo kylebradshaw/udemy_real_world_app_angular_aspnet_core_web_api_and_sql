@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
 import { AddCategoryRequest } from '../models/category.model';
 
 @Injectable({
@@ -10,13 +10,16 @@ export class CategoryService {
   private http = inject(HttpClient);
   private apiBaseUrl = 'http://localhost:5000/api';
 
+  addCategoryStatus = signal<'idle' | 'loading' | 'success' | 'error'>('idle'); // TS union types
+
   addCategory(payload: AddCategoryRequest): void {
+    this.addCategoryStatus.set('loading');
     this.http.post(`${this.apiBaseUrl}/categories`, payload).subscribe({
       next: (response) => {
-        console.log('Category added successfully', response);
+        this.addCategoryStatus.set('success');
       },
       error: (error) => {
-        console.error('Error adding category', error);
+        this.addCategoryStatus.set('error');
       }
     });
   }
