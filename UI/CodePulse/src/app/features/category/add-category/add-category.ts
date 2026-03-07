@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { CategoryService } from './../services/category-service';
+import { inject, Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
@@ -11,6 +12,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 export class AddCategory {
 // 1. import ReactiveFormsModule
 // 2. form groups -> form controls
+  private categoryService = inject(CategoryService);
 
   addCategoryFormGroup = new FormGroup({
     name: new FormControl<string>('', { nonNullable: true, validators: [Validators.required, Validators.minLength(6)] }),
@@ -19,6 +21,7 @@ export class AddCategory {
 
   onSubmit(): void {
     console.log(this.addCategoryFormGroup.getRawValue());
+    this.categoryService.addCategory(this.addCategoryFormGroup.getRawValue());
   }
 
   get nameFormControl(): FormControl<string> {

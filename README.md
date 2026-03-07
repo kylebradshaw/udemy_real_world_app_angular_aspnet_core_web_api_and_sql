@@ -2,6 +2,22 @@
 
 https://www.udemy.com/course/real-world-app-angular-aspnet-core-web-api-and-sql
 
+## 36. Category Service
+
+## 35. Form Validation
+
+## 34. Add Category Component
+
+## 33. Create categories list cmp w NG and routing
+
+## 32. BS Navbar Component
+
+## 31. Clean NG app, Bootstrap CDN
+
+## 30. Angular structure overview
+
+## 29. create ng@20 app in UI/CodePulse
+
 ## 28. Implement the repository pattern for the CreateCategory method
 
 ## 27. Repository Pattern (START HERE)
