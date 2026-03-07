@@ -1,4 +1,3 @@
-using CodePulse.API.Data;
 using CodePulse.API.Models.Domain;
 using CodePulse.API.Models.DTO;
 using CodePulse.API.Repositories.Interface;
@@ -12,22 +11,15 @@ public class CategoriesController : ControllerBase
 {
     private readonly ICategoryRepository _categoryRepository;
 
-    // not using Repository DI
-    // private readonly ApplicationDbContext _dbContext;
-    //
-    // public CategoriesController(ApplicationDbContext dbContext)
-    // {
-    //     _dbContext = dbContext;
-    // }
     public CategoriesController(ICategoryRepository categoryRepository)
     {
         _categoryRepository = categoryRepository;
     }
-    
+
 
     // POST: /api/categories
     [HttpPost]
-    public IActionResult CreateCategory([FromBody] CreateCategoryRequestDto request)
+    public async Task<IActionResult> CreateCategory([FromBody] CreateCategoryRequestDto request)
     {
         // Map DTO to Domain Model
         var category = new Category
@@ -36,10 +28,8 @@ public class CategoriesController : ControllerBase
             Name = request.Name,
             UrlHandle = request.UrlHandle
         };
-        // async is implied
-        // repository, here we are abstracting the db layer to the repository, dbcontext class is not used directly in controller
-        // we're using the repository pattern
-        _createRepository.Create(category);
+
+        await _categoryRepository.Create(category);
 
         // Map Domain Model to DTO
         var response = new CategoryDto
@@ -55,9 +45,9 @@ public class CategoriesController : ControllerBase
 
     // GET: /api/categories
     [HttpGet]
-    public IActionResult GetAllCategories()
+    public async Task<IActionResult> GetAllCategories()
     {
-        var categories = _dbContext.Categories.ToList();
+        var categories = await _categoryRepository.GetAll();
 
         var response = categories.Select(c => new CategoryDto
         {
@@ -71,9 +61,9 @@ public class CategoriesController : ControllerBase
 
     // GET: /api/categories/{id}
     [HttpGet("{id:guid}")]
-    public IActionResult GetCategoryById([FromRoute] Guid id)
+    public async Task<IActionResult> GetCategoryById([FromRoute] Guid id)
     {
-        var category = _dbContext.Categories.Find(id);
+        var category = await _categoryRepository.GetById(id);
 
         if (category is null)
             return NotFound();
@@ -90,17 +80,19 @@ public class CategoriesController : ControllerBase
 
     // PUT: /api/categories/{id}
     [HttpPut("{id:guid}")]
-    public IActionResult UpdateCategory([FromRoute] Guid id, [FromBody] UpdateCategoryRequestDto request)
+    public async Task<IActionResult> UpdateCategory([FromRoute] Guid id, [FromBody] UpdateCategoryRequestDto request)
     {
-        var category = _dbContext.Categories.Find(id);
+        var category = new Category
+        {
+            Id = id,
+            Name = request.Name,
+            UrlHandle = request.UrlHandle
+        };
+
+        category = await _categoryRepository.Update(category);
 
         if (category is null)
             return NotFound();
-
-        category.Name = request.Name;
-        category.UrlHandle = request.UrlHandle;
-
-        _dbContext.SaveChanges();
 
         var response = new CategoryDto
         {
@@ -114,15 +106,12 @@ public class CategoriesController : ControllerBase
 
     // DELETE: /api/categories/{id}
     [HttpDelete("{id:guid}")]
-    public IActionResult DeleteCategory([FromRoute] Guid id)
+    public async Task<IActionResult> DeleteCategory([FromRoute] Guid id)
     {
-        var category = _dbContext.Categories.Find(id);
+        var category = await _categoryRepository.Delete(id);
 
         if (category is null)
             return NotFound();
-
-        _dbContext.Categories.Remove(category);
-        _dbContext.SaveChanges();
 
         return NoContent();
     }

@@ -2,11 +2,37 @@
 
 https://www.udemy.com/course/real-world-app-angular-aspnet-core-web-api-and-sql
 
+## 28. Implement the repository pattern for the CreateCategory method
+
 ## 27. Repository Pattern (START HERE)
 
 - Design pattern to separate the data access logic from the app
 - provides interface w/o exposing implementation
 - helps create abstraction
+
+```mermaid
+graph TD
+    subgraph Flow [ ]
+        direction LR
+        C[📁 Controller] --> R[📄 Repository]
+        R --> DB[(🛢️ Database)]
+    end
+
+    DC[⚙️ DbContext] --> R
+
+    %% Clean up styling
+    style Flow fill:none,stroke:none
+    style C fill:#f9d77e,color:black
+    style R fill:#b2d8d8,color:black
+    style DC fill:none,stroke-dasharray: 5 5
+```
+
+- Controller has no awareness of the DbContext
+- decouples the data access layer form the application
+- consistency
+- performance
+- multiple data sources
+
 
 ## 26. Test API
 

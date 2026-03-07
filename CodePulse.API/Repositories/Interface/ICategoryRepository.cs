@@ -5,4 +5,8 @@ namespace CodePulse.API.Repositories.Interface;
 public interface ICategoryRepository
 {
     Task<Category> Create(Category category);
+    Task<IEnumerable<Category>> GetAll();
+    Task<Category?> GetById(Guid id);
+    Task<Category?> Update(Category category);
+    Task<Category?> Delete(Guid id);
 }
