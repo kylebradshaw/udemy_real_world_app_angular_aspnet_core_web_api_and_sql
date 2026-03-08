@@ -1,6 +1,7 @@
 import { HttpClient, httpResource } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
 import { AddCategoryRequest, Category } from '../models/category.model';
+import { environment } from '../../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -8,7 +9,7 @@ import { AddCategoryRequest, Category } from '../models/category.model';
 export class CategoryService {
   // call .net core web api to get categories
   private http = inject(HttpClient);
-  private apiBaseUrl = 'http://localhost:5000/api';
+  private apiBaseUrl = environment.apiBaseUrl;
 
   requestStatus = signal<'idle' | 'loading' | 'success' | 'error'>('idle'); // TS union types
 
