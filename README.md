@@ -2,6 +2,14 @@
 
 https://www.udemy.com/course/real-world-app-angular-aspnet-core-web-api-and-sql
 
+# 41. get all categories from api and display in angular
+
+# 40. use httpResource in Angular to get categories from API
+
+# 38, 39 Get All Categories
+
+# 37. Enable Cors (Program.cs)
+
 ## 36. Category Service
 
 ## 35. Form Validation

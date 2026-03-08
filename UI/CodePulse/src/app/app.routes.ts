@@ -4,11 +4,6 @@ import { AddCategory } from './features/category/add-category/add-category';
 
 export const routes: Routes = [
   {
-    path: '',
-    redirectTo: '/home',
-    pathMatch: 'full'
-  },
-  {
     path: 'admin/categories',
     component: CategoryList
   },
