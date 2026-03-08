@@ -3,8 +3,12 @@ export interface AddCategoryRequest {
   urlHandle: string;
 }
 
+export interface UpdateCategoryRequest extends AddCategoryRequest {
+  id?: string;
+}
+
 export interface Category {
-  id: number;
+  id?: string;
   name: string;
   urlHandle: string;
 }

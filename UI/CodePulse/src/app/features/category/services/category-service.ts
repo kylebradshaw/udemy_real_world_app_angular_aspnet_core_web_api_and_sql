@@ -1,6 +1,6 @@
 import { HttpClient, httpResource } from '@angular/common/http';
-import { inject, Injectable, signal } from '@angular/core';
-import { AddCategoryRequest, Category } from '../models/category.model';
+import { inject, Injectable, signal, InputSignal } from '@angular/core';
+import { AddCategoryRequest, Category, UpdateCategoryRequest } from '../models/category.model';
 import { environment } from '../../../../environments/environment';
 
 @Injectable({
@@ -27,5 +27,21 @@ export class CategoryService {
 
   getAllCategories() {
     return httpResource<Category[]>(() => `${this.apiBaseUrl}/categories`); // we don't need to subscribe to this, has signals we can leverage
+  }
+
+  getCategoryById(id: InputSignal<string | undefined>) {
+    return httpResource<Category>(() => `${this.apiBaseUrl}/categories/${id()}`);
+  }
+
+  updateCategory(payload: UpdateCategoryRequest): void {
+    this.requestStatus.set('loading');
+    this.http.put(`${this.apiBaseUrl}/categories/${payload.id}`, payload).subscribe({
+      next: (response) => {
+        this.requestStatus.set('success');
+      },
+      error: (error) => {
+        this.requestStatus.set('error');
+      }
+    });
   }
 }

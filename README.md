@@ -2,6 +2,10 @@
 
 https://www.udemy.com/course/real-world-app-angular-aspnet-core-web-api-and-sql
 
+# 44. Get a Category by Id (API)
+
+# 42. Create Environment Files
+
 # 41. get all categories from api and display in angular
 
 # 40. use httpResource in Angular to get categories from API

@@ -38,6 +38,14 @@ export class AddCategory {
     urlHandle: new FormControl<string>('', { nonNullable: true, validators: [Validators.required, Validators.minLength(10)] }),
   })
 
+  get nameFormControl(): FormControl<string> {
+    return this.addCategoryFormGroup.controls.name as FormControl<string>;
+  }
+
+  get urlHandleFormControl(): FormControl<string> {
+    return this.addCategoryFormGroup.controls.urlHandle as FormControl<string>;
+  }
+
   onSubmit(): void {
     console.log(this.addCategoryFormGroup.getRawValue());
 
@@ -49,13 +57,5 @@ export class AddCategory {
 
     this.categoryService.addCategory(addCategoryRequestDto);
 
-  }
-
-  get nameFormControl(): FormControl<string> {
-    return this.addCategoryFormGroup.controls.name as FormControl<string>;
-  }
-
-  get urlHandleFormControl(): FormControl<string> {
-    return this.addCategoryFormGroup.controls.urlHandle as FormControl<string>;
   }
 }

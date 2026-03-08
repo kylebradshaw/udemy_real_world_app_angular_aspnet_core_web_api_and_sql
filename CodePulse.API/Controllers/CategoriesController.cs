@@ -61,7 +61,7 @@ public class CategoriesController : ControllerBase
 
     // GET: /api/categories/{id}
     [HttpGet("{id:guid}")]
-    public async Task<IActionResult> GetCategoryById([FromRoute] Guid id)
+    public async Task<IActionResult> GetCategoryById([FromRoute] Guid id) //FromRoute is in the URI
     {
         var category = await _categoryRepository.GetById(id);
 
